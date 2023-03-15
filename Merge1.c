@@ -8,7 +8,7 @@
 此外注意：函数的入口的变量，最好用新的变量名取代，别影响函数外的事物
  */
 List Merge( List L1, List L2 ){
-    /*L1的空结点当做头结点，方便后续插入*/
+    /*申请头结点，提交结果需要带有头结点*/
     PtrToNode front;
     PtrToNode rear;
     List l1, l2;
