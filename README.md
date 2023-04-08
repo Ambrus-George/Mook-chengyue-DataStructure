@@ -38,4 +38,11 @@ Mook浙江大学-陈越，何钦明两位老师开设的数据结构课程，这
     > 另外，又遇到了自己电脑上运行有问题，提交上去运行没问题的情况，估计是gcc版本不同导致的吧，自己电脑上输入不对，真是垃圾，用c++或者java写可能就不会有这样的问题了
 2. [List Leaves](ListLeaves.c)
     > 做完了 `树的同构` 这道题，这个题的思想方法一致，多了一个层序遍历的问题，按照何老师的授课，可以通过队列来实现层序遍历，我使用数组的方法实现队列（该队列较为简单，只对这道题有用），由于不熟悉队列，花了不少时间，真笨
-3. [Tree Traversals Again]()
+3. [Tree Traversals Again](TTraAgain.c)
+    > 需要讨巧，Push 进去的队列就是 `PreOrder` ；Pop 出来的队列就是 `InOrder` ；已经知道两个顺序，就可以推出 `PostOrder`。
+
+## 第四周
+1. [是否同一棵二叉搜索树]()
+2. [Root of AVL Tree]()
+3. [Complete Binary Search Tree]()
+4. [二叉搜索树的操作集]()
