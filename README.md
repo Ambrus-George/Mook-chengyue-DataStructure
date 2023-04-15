@@ -50,5 +50,6 @@ Mook浙江大学-陈越，何钦明两位老师开设的数据结构课程，这
     ```
 2. [Root of AVL Tree](RootAVLTree.c)
     > 难点在于如何能够判断出什么时候该进行四种旋转，递归函数实现，从树的底部到顶部的结点的左右高度判定，判定成立，就进行旋转
-3. [Complete Binary Search Tree]()
+3. [Complete Binary Search Tree](CBSTree.c)
+    > 需要熟悉完全二叉树的排序方式，使用数组来表示该完全二叉树
 4. [二叉搜索树的操作集]()
