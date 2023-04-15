@@ -121,14 +121,14 @@ int IsSameTree(Tree T1, Tree T2){
 
 void DeleteTree(Tree T){
     if (T->left)
-        {
-            DeleteTree(T->left);
-        }
-        if (T->right)
-        {
-            DeleteTree(T->right);
-        }
-        free(T);
+    {
+        DeleteTree(T->left);
+    }
+    if (T->right)
+    {
+        DeleteTree(T->right);
+    }
+    free(T);
 }
 
 PNode NewNode(int item){
