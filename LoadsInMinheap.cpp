@@ -1,87 +1,145 @@
 #include <iostream>
+#include <array>
+#include <limits>
 
 #define MAXSIZE 1000
 
-using namespace std;
-
 typedef int ElementType;
 
-typedef struct HNode *Heap;
-struct HNode{
-    ElementType *Data;
-    int Size;
-    int Capacity;
+class MinHeap
+{
+public:
+	MinHeap() : Data{ 0 }, index(0) 
+	{
+		initMinIndex0();
+	}
+	~MinHeap() {}
+
+	void readInsert(ElementType item)
+	{
+		insertHelper(item);
+	}
+
+	void writeDataToEmptyHeap(int N)
+	{
+		for (int i = 0; i < N; i++)
+		{
+			ElementType item = 0;
+			std::cin >> item;
+			writeNumHelper(item);
+		}
+
+		sortMinHeap();
+	}
+
+	void sortMinHeap()
+	{
+		sortDataHelper();
+	}
+
+	void printIndexToRoot(int ind)
+	{
+		bool printFlag = false;
+		for (int i = ind; i > 0; i /= 2)
+		{
+			if (printFlag)
+			{
+				std::cout << " ";
+			}
+			std::cout << Data[i];
+			printFlag = true;
+		}
+
+		std::cout << std::endl;
+	}
+
+private:
+	ElementType Data[MAXSIZE + 1];
+	int index;
+
+	void insertHelper(ElementType item)
+	{
+		int i = ++index;
+
+		for (; Data[i/2] > item; i /= 2)
+		{
+			Data[i] = Data[i / 2];
+		}
+
+		Data[i] = item;
+	}
+
+	void initMinIndex0()
+	{
+		Data[0] = std::numeric_limits<ElementType>::min();
+	}
+
+	void writeNumHelper(ElementType item)
+	{
+		Data[++index] = item;
+	}
+
+	void sortDataHelper()
+	{
+		for (int i = index/2; i > 0; i--)
+		{
+			percolateDown(i);
+		}
+	}
+
+	void percolateDown(int ind)
+	{
+		int parentIndex = ind;
+		int childIndex = ind * 2;
+
+		while (childIndex <= index)
+		{
+			// choose smaller child
+			if (((childIndex + 1) <= index) && (Data[childIndex] > Data[childIndex + 1]))
+			{
+				childIndex++;
+			}
+
+			if (Data[parentIndex] > Data[childIndex])
+			{
+				swap(parentIndex, childIndex);
+				parentIndex = childIndex;
+				childIndex = parentIndex * 2;
+			}
+			else {
+				break;
+			}
+		}
+	}
+
+	void swap(int ind1, int ind2)
+	{
+		ElementType item = Data[ind1];
+		Data[ind1] = Data[ind2];
+		Data[ind2] = item;
+	}
 };
-
-typedef Heap MinHeap;
-
-Heap CreateHeap(int size);
-void InsertHeap(Heap H, ElementType X);
-void PrintR(int p, Heap H);
 
 int main()
 {
-    int N = 0;
-    int M = 0;
+	MinHeap minH;
+	int n = 0, m = 0;
 
-    int M_Group[MAXSIZE];//Store M numbers
+	std::cin >> n >> m;
 
-    cin >> N >> M;
+	for (int i = 0; i < n; i++)
+	{
+		ElementType item = 0;
+		std::cin >> item;
+		minH.readInsert(item);
+	}
 
-    //Create a min_heap
-    MinHeap minH = CreateHeap(N);
+	for (int i = 0; i < m; i++)
+	{
+		int index = 0;
+		std::cin >> index;
+		minH.printIndexToRoot(index);
+	}
 
-    //Insert the input and classfy the min_Heap
-    for (int i = 0; i < N; i++)
-    {
-        ElementType item = 0;
-        cin >> item;
-        InsertHeap(minH, item);
-    }
-
-    //Read the position numbers
-    for (int i = 0; i < M; i++)
-    {
-        cin >> M_Group[i];
-    }
-
-    //Print the result
-    for (int i = 0; i < M; i++)
-    {
-        PrintR(M_Group[i], minH);
-    }
-    return 0;
-}
-
-void PrintR(int p, Heap H){
-    int i = p;
-    bool flag = false;
-    for ( ; i > 0; i /= 2)
-    {
-        if (flag)   cout << " " ;
-        cout << H->Data[i];
-        flag = true;
-    }
-    cout << endl;
-}
-
-Heap CreateHeap(int size){
-    MinHeap H = (MinHeap)malloc(sizeof(struct HNode));
-    H->Data = (ElementType*)malloc((size + 1) * sizeof(ElementType));
-    H->Data[0] = -10001;    //define Data[0] = min = -10001;
-    H->Capacity = size;
-    H->Size = 0;
-
-    return H;
-}
-
-void InsertHeap(Heap H, ElementType X){
-    int i = ++H->Size;
-    
-    for ( ; H->Data[i/2] > X; i /= 2)
-    {
-        H->Data[i] = H->Data[i/2];
-    }
-    H->Data[i] = X;
-    return;
+	return 0;
 }
