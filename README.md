@@ -92,9 +92,29 @@ Mook浙江大学-陈越，何钦明两位老师开设的数据结构课程，这
    
 2. [Saving James Bond](SavingJamesBond.cpp)
    > 这道题很简单的，一开始的时候计算结果不正确，排查之后是因为在DFS寻路过程中，如果跳到了一个鳄鱼的位置，后面发现从这个位置找不到正确的路线，那就要退回到上一个位置，所以，每次DFS时，要记录当前位置，再去寻找路线
+   
+   ```diff
+   - vector 已经声明的数组,对其统一初始化，可以使用 resize 函数，也可以使用 fill 函数，也可以预分配数组大小然后使用push_back
+   + 求绝对值可以使用 <cmath> 中重载的函数 abs() ，非常方便 
+   ```
+   
+   ```cpp
+   std::vector<int> vec;
+   vec.resize(10);          // 10个元素，默认初始化为0
+   vec.resize(15, -1);       // 调整为15个元素，新元素初始化为-1
 
-3. 
-4. []()
+   #include <algorithm>
+   std::vector<std::string> vec(5); // 5个空字符串
+   std::fill(vec.begin(), vec.end(), "default"); // 全部设为"default"
+
+   std::vector<int> optimized;
+   optimized.reserve(1000); // 预分配内存，避免push_back时多次重新分配
+   for (int i = 0; i < 1000; i++) {
+       optimized.push_back(i * 2); // 高效添加元素
+   }
+   ```
+4. 
+5. []()
 
 ## 第七周
 
