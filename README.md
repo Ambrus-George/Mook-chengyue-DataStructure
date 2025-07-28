@@ -114,8 +114,18 @@ Mook浙江大学-陈越，何钦明两位老师开设的数据结构课程，这
        optimized.push_back(i * 2); // 高效添加元素
    }
    ```
-4. 
-5. []()
+3. [六度空间](SixDegreesSpace.cpp)
+   > 教训就是永远别用上三角下三角存放数据，真的很不方便
 
+   ```diff
+   - cpp 中如何按照设定形式输出，即属于的double 变量有几位小数，可以使用 fixed 
+   ```
+
+   ```cpp
+   #include <iomanip>
+
+   double item = 1;
+   std::cout << std::fixed << std::setprecision(2) << item;
+   ```
 ## 第七周
 
