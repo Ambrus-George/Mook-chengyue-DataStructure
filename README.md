@@ -163,13 +163,67 @@ Mook浙江大学-陈越，何钦明两位老师开设的数据结构课程，这
    ```
 
 ## 第八周
-1. [公路村村通]()
+1. [公路村村通](VillageRoads.cpp)
+   > 我是使用 Kruskal 算法来做这道题的，Kruskal 算法中需要用到并查集的知识，但我最开始写的代码，并查集的操作代码写得不规范，造成了混乱和错误，导致有几个测试点不通过
+
+   ```cpp
+   // 以下是 AI 写的操作集，清楚明白，AI 比我强多了
+   class UnionFind {
+    private:
+        std::vector<int> parent;
+        std::vector<int> rank;
+        
+    public:
+        UnionFind(int n) {
+            parent.resize(n + 1);
+            rank.resize(n + 1, 0);
+            for (int i = 1; i <= n; i++) {
+                parent[i] = i;
+            }
+        }
+    
+    int find(int x) {
+        if (parent[x] != x) {
+            parent[x] = find(parent[x]); // 路径压缩
+        }
+        return parent[x];
+    }
+    
+    bool merge(int x, int y) {
+        int rootX = find(x);
+        int rootY = find(y);
+        
+        if (rootX == rootY) {
+            return false;
+        }
+        
+        // 按秩合并
+        if (rank[rootX] < rank[rootY]) {
+            parent[rootX] = rootY;
+        } else if (rank[rootX] > rank[rootY]) {
+            parent[rootY] = rootX;
+        } else {
+            parent[rootY] = rootX;
+            rank[rootX]++;
+        }
+        return true;
+    }
+    
+    bool isConnected(int x, int y) {
+        return find(x) == find(y);
+    }
+    };
+   ```
+   
+   ```
+   + 我最开始写的 while 循环条件有一条是访问过也就是成为树的结点是不是全部的结点
+   + 但其实这样写是很麻烦的，不看结点，看边就好了，N个结点，想要最小生成树，一定是N-1条边
+   + 如果图不连通，那么访问过所有的边后，能选中的边一定小于 N-1
+   ```
+1. [How Long Does It Take]()
    >
    > 
-2. [How Long Does It Take]()
-   >
-   > 
-3. [关键活动]()
+2. [关键活动]()
    >
    > 
 
