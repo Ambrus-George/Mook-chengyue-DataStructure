@@ -152,7 +152,7 @@ Mook浙江大学-陈越，何钦明两位老师开设的数据结构课程，这
 
    这个作者的文章条理清晰，一看就是很细致的牛人，开个[任意门](https://blog.csdn.net/m0_63938020/article/details/124423084)，去看看大佬的笔迹~~
    
-3. [旅游规划](/CodeFiles/Travel.cpp)
+3. [旅游规划](/CodeFiles/TravelMenu.cpp)
    > 不用多说，其实就是比普通的 Dijkstra 算法，多了一个高速费的判断条件，完成了上一题之后，这道题应该算是特别简单，秒了
 
    ```diff
