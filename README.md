@@ -244,8 +244,54 @@ Mook浙江大学-陈越，何钦明两位老师开设的数据结构课程，这
    > 总之吧，程序是没问题的，但是因为思路变来变去，我自己闭门造车的时候想了好几种不对的思路，做了一半就发现有问题，然后重新来，导致程序中有几个不需要的变量和构件，我也懒得改了，但是我觉得最后我的整体的解决方法还是很不错的，其实想通了就是很简单的题目
 
 ## 第九周
-1. [排序]()
+1. [排序](Sort1.cpp)
+   > 生成SedgewickSequence遇到点儿麻烦，陈老师讲义上的公式不对，在网上查的实现公式
+   > 希尔排序的的实现方式是，比如当前 gap 是5，从下标5开始，以5为间隔，比较5，0，的大小，使用插入排序调整位置，然后比较6，1，...，然后比较 10，5，0 的大小...
+   
+   ```cpp
+   typedef long int ElementType;
+    typedef int IndexType;
+    
+    void generateSedgewickSequence(std::vector<IndexType>& Q, IndexType N)
+    {
+    	Q.clear();
+    	IndexType k = 0;
+    	IndexType gap = 0;
+    	while (true)
+    	{
+    		if (k % 2 == 0)
+    		{
+    			gap = 9 * (pow(2, k) - pow(2, k / 2)) + 1;
+    		}
+    		else
+    		{
+    			gap = 8 * pow(2, k) - 6 * pow(2, (k + 1) / 2) + 1;
+    		}
+    		if (gap > N) break;
+    		if (gap > 0)
+    			Q.push_back(gap);
+    		k++;
+    	}
+    	std::reverse(Q.begin(), Q.end());
+    	return;
+    }
 
+
+   // 希尔排序
+    for (auto gap : SedgewickSequence)
+    {
+    	decltype(gap) i, j;
+    	for (i = gap; i < N; i++)
+    	{
+    		auto Tmp = Data.at(i);
+    		for (j = i; j >= gap && Data.at(j - gap) > Tmp; j -= gap)  //注意这里的判断条件
+    		{
+    			Data.at(j) = Data.at(j - gap);
+    		}
+    		Data.at(j) = Tmp;
+    	}
+    }
+   ```
 
 2. [Insert or Merge]()
 
