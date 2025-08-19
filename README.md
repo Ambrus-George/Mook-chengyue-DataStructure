@@ -293,7 +293,7 @@ Mook浙江大学-陈越，何钦明两位老师开设的数据结构课程，这
     }
    ```
 
-2. [Insert or Merge]()
+2. [Insert or Merge](/CodeFiles/Sort2.cpp)
 
 
 3. [Insertion or Heap Sort]()
