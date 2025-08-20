@@ -311,7 +311,7 @@ Mook浙江大学-陈越，何钦明两位老师开设的数据结构课程，这
    ```
 
 
-3. [Insertion or Heap Sort](Sort3.cpp)
+3. [Insertion or Heap Sort](/CodeFiles/Sort3.cpp)
    > 简单，和上一题基本一样，这次比较两排序是堆排序还是插入排序，在上一题的代码上加个控制堆排序的函数就OK了
    ```diff
    + 完全二叉树​：除了最后一层，其他层都是满的，并且最后一层节点从左到右连续排列
