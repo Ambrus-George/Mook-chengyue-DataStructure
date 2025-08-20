@@ -348,8 +348,15 @@ Mook浙江大学-陈越，何钦明两位老师开设的数据结构课程，这
 1. [统计工龄](/CodeFiles/Sort4.cpp)
    > 小学生题目，没必要快速排序
 
-2. [PAT Judge](/CodeFiles/Sort5.cpp)
-   > 
+2. [PAT Judge](/CodeFiles/Sort5.cpp) + [chatgpt生成版](/CodeFiles/Sort5_chatgpt.cpp)
+   > 唉，使用的是插入排序，结果时间复杂度是O(N^2), 最后一个测试点不通过，chatgpt 10秒写出来的代码完虐我，好烦，人生好烦
+
+   ```cpp
+   // 如何设置输出格式：
+   #include <iomanip>
+   int a = 5;
+   std::cout << std::setfill('0') << std::setw(5) << a << std::endl;
+   ```
 
 3. [Sort with Swap(0, i)](/CodeFiles/Sort6.cpp)
    > 
