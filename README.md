@@ -346,7 +346,7 @@ Mook浙江大学-陈越，何钦明两位老师开设的数据结构课程，这
 
 ## 第十周
 1. [统计工龄](/CodeFiles/Sort4.cpp)
-   > 
+   > 小学生题目，没必要快速排序
 
 2. [PAT Judge](/CodeFiles/Sort5.cpp)
    > 
