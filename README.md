@@ -403,7 +403,41 @@ Mook浙江大学-陈越，何钦明两位老师开设的数据结构课程，这
    > 题目很简单，过程中犯了一个错误，对象转化为 key 值之后，这个是旧位置，冲突后应该是 oldposition + 1^2 / 2^2 / ...，但我加了一个，就直接更新了 key ,下一次，用 key 来加，这样肯定不对，这个错误导致过不去两个测试点，这个还是AI看出来的
 
 3. [散列3 QQ账户的申请和登录](/CodeFiles/Hash3.cpp)
-   > 
+   > string类中 substr 的使用
+   >
+
+   ```cpp
+    #include <iostream>
+    #include <vector>
+    #include <string>
+    
+    int main() {
+        std::string str = "abcdefghijklmnopqrstuvwxyz";
+        int chunkSize = 3;
+        std::vector<std::string> chunks;
+        
+        // 从后向前提取
+        while (!str.empty()) {
+            int take = std::min(chunkSize, static_cast<int>(str.length()));
+            chunks.push_back(str.substr(str.length() - take));
+            str.resize(str.length() - take);
+        }
+        
+        // 输出结果（从后向前）
+        std::cout << "从后向前提取:\n";
+        for (const auto& chunk : chunks) {
+            std::cout << chunk << "\n";
+        }
+        
+        // 输出结果（从前向后）
+        std::cout << "\n从前向后提取:\n";
+        for (auto it = chunks.rbegin(); it != chunks.rend(); ++it) {
+            std::cout << *it << "\n";
+        }
+        
+        return 0;
+    }
+   ```
 4. [散列4 Hashing --Hard Version](/CodeFiles/Hash4.cpp)
    > 
 
