@@ -400,7 +400,8 @@ Mook浙江大学-陈越，何钦明两位老师开设的数据结构课程，这
    > 4. 另外 hash 冲突处理能力不足，我最开始，有些用户转化成的 key 值是一样的，这样肯定不行，这个我还没有多少头绪
 
 2. [散列2 Hashing](/CodeFiles/Hash2.cpp)
-   > 
+   > 题目很简单，过程中犯了一个错误，对象转化为 key 值之后，这个是旧位置，冲突后应该是 oldposition + 1^2 / 2^2 / ...，但我加了一个，就直接更新了 key ,下一次，用 key 来加，这样肯定不对，这个错误导致过不去两个测试点，这个还是AI看出来的
+
 3. [散列3 QQ账户的申请和登录](/CodeFiles/Hash3.cpp)
    > 
 4. [散列4 Hashing --Hard Version](/CodeFiles/Hash4.cpp)
